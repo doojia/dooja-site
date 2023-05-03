@@ -26,7 +26,7 @@ jobs:
           path: dooja-site
 
       - name: Copy Obsidian files to dooja-site
-        run: cp -R obsidian/. dooja-site/content/obsidian
+        run: rsync -av --exclude='.obsidian' obsidian/ dooja-site/content/obsidian/
       
       - name: Commit and push changes
         run: |
